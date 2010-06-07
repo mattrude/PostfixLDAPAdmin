@@ -1,0 +1,18 @@
+<?php
+
+$ldaphost = "localhost";
+$ldapport = 636;
+$ldapbind = "cn=manager,dc=example,dc=com";
+$ldappass = "password";
+$ldapbase = "dc=example,dc=com";
+
+// And Connect
+
+$ds = ldap_connect($ldaphost, $ldapport);
+$bind = ldap_bind( $ds, $ldapbind, $ldappass );
+if ( !$bind ) {
+  echo 'Failed to connect to LDAP server!';
+  exit;
+}
+
+?>
