@@ -13,7 +13,7 @@ if (!isset($_REQUEST['user'])) {
   $test = ldap_get_entries($ldap_con, $users);
 
   $filter="(objectclass=*)"; // this command requires some filter
-  $justthese = array("ou", "sn", "givenname", "mail"); //the attributes to pull, which is much more efficient than pulling all attributes if you don't do this
+  $justthese = array("uid", "sn", "givenname", "mail"); //the attributes to pull, which is much more efficient than pulling all attributes if you don't do this
   $sr=ldap_read($ds, $udn, $filter, $justthese);
   $entry = ldap_get_entries($ds, $sr);
 
